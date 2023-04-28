@@ -2,17 +2,15 @@ package com.epam.mjc.io;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 
 public class FileReader {
     public static Profile getDataFromFile(File file) {
         String name = null;
         int age = 0;
         String email = null;
-        Long phone = null;
-        try {
-            java.io.FileReader fileReader = new java.io.FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
+        long phone = 0L;
+        try (BufferedReader bufferedReader = new BufferedReader(new java.io.FileReader(file))){
             StringBuilder stringBuilder = new StringBuilder();
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -41,11 +39,12 @@ public class FileReader {
                         case "Phone":
                             phone = Long.parseLong(value);
                             break;
+                        default:
+                            break;
                     }
                 }
             }
-            bufferedReader.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
