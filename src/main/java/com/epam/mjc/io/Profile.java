@@ -9,10 +9,10 @@ public class Profile {
     private String email;
     private Long phone;
 
-    public Profile() {
+    private Profile() {
 
     }
-    public Profile(String name, Integer age, String email, Long phone) {
+   Profile(String name, Integer age, String email, Long phone) {
         this.name = name;
         this.age = age;
         this.email = email;
