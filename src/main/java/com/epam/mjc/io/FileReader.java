@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 
-public class FileReader {
+class FileReader {
     public static Profile getDataFromFile(File file) {
         String name = null;
         int age = 0;
